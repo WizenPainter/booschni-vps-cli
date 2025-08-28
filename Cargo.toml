@@ -1,0 +1,11 @@
+[package]
+name = "booschnie-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive"] }
+dotenvy = "0.15"
+ssh2 = "0.9"
+rusqlite = "0.32"
+chrono = { version = "0.4", features = ["serde"] }

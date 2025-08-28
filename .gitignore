@@ -1,0 +1,6 @@
+/target
+.env
+*.sql
+*.db
+*.sqlite
+*.sqlite3
