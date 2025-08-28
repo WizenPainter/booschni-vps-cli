@@ -5,12 +5,16 @@ use std::path::{Path, PathBuf};
 use std::process::Command;
 
 use chrono::Utc;
-use dotenvy::dotenv;
+//use dotenvy::dotenv;
+use dotenvy::from_path;
 use ssh2::Session;
 
 fn main() -> io::Result<()> {
     // Load .env if present
-    dotenv().ok();
+    //dotenv().ok();
+    let home = env::var("HOME").expect("HOME environment variable not set");
+    let env_path = PathBuf::from(format!("{}/.booschnie_vps.env", home));
+    from_path(&env_path).ok();
 
     let host = env::var("VPS_HOST").expect("VPS_HOST must be set in .env");
     let user = env::var("VPS_USER").expect("VPS_USER must be set in .env");
